@@ -20,6 +20,8 @@ export const register = async (req, res) => {
 	try {
 		const hash = await argon2.hash(password);
 		const id = await createProf(email, hash);
+		sendMail("mnahap891@gmail.com", `http://localhost:5000/verify/rzehkjhrejherjhjkdhjhjfhdf`);
+
 		sendMail(email, `${process.env.HOST}:${process.env.port}/verify/rzehkjhrejherjhjkdhjhjfhdf`);
 		res.status(201).json({ message: "Professeur crée ", id, email });
 	} catch (error) {
