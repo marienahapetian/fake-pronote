@@ -5,6 +5,7 @@ import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT;
+const HOST = process.env.HOST;
 
 app.use(cors());
 
@@ -17,5 +18,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-	console.log(`Serveur tourne sur http://localhost:${PORT}`);
+	console.log(`Serveur tourne sur ${HOST}:${PORT}`);
 });
